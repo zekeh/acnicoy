@@ -63,7 +63,7 @@ app.on('ready', function() {
         show: false
     });
     mainWindow.setMenu(null);  // Must do it here to set dimensions correctly
-
+    mainWindow.webContents.openDevTools();
     // Set minimum dimensions (taking size of frame around window into account)
     const windowSize = mainWindow.getSize();
     const contentSize = mainWindow.getContentSize();
@@ -125,19 +125,19 @@ app.on('ready', function() {
         mainWindowState.isDevToolsOpened = false;
         storage.set("windowState.isDevToolsOpened", false);
     });
-  
+
     // Content Security Policy: don't allow loading anything at all.
     // session.defaultSession.webRequest.onHeadersReceived((details, callback)=>{
     //     callback({ responseHeaders: "default-src 'self'" });
     // });
-  
+
     // Load the index.html of the app which also executes the main script
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, "html", "index.html"),
         protocol: "file:",
         slashes: true
     }));
-  
+
     // Allow mainWindow to control when the app gets closed
     let forceQuit = true;
     ipcMain.on("activate-controlled-closing", (event) => {
@@ -163,7 +163,7 @@ app.on('ready', function() {
         mainWindow.show();
         mainWindow.focus();
     });
-  
+
     mainWindow.on('closed', function() {
       mainWindow = null;
     });

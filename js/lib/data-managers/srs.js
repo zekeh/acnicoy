@@ -160,7 +160,7 @@ module.exports = function (paths, modules) {
         const timeSpanNames = srs.getIntervalTextsForScheme(scheme);
         const intervalModifier = utility.timeSpanStringToSeconds(
             modules.settings.srs.intervalModifier);
-        const timeSpans = timeSpanNames.map((t) => 
+        const timeSpans = timeSpanNames.map((t) =>
             utility.timeSpanStringToSeconds(t) - intervalModifier);
         dataMap[language].intervals = Object.freeze(timeSpans);
         dataMap[language].intervalTexts = Object.freeze(timeSpanNames);
@@ -174,7 +174,6 @@ module.exports = function (paths, modules) {
     /* =========================================================================
         Getting SRS info
     ========================================================================= */
-
     srs.getDueVocab = function (startTime=0) {
         return modules.database.query(
             `SELECT word FROM vocabulary
@@ -359,10 +358,10 @@ module.exports = function (paths, modules) {
      *     Maps each level from the old scheme to an array consisting of tuples
      *     of the form (newLevel, modifier), where newLevel is a level from the
      *     new scheme and modifier is a string specifying how the review date
-     *     of each SRS item moved into this level should be adjusted to the 
+     *     of each SRS item moved into this level should be adjusted to the
      *     interval of the new level.
      *     The array of tuples should be ordered by the first entry of the
-     *     tuples (i.e. number of new level). If more than one tuple is given, 
+     *     tuples (i.e. number of new level). If more than one tuple is given,
      *     an SRS item will be moved into the next level among given ones
      *     where the cumulative interval up that level is smaller than the
      *     time which the SRS item has already been scheduled in its current
@@ -444,6 +443,6 @@ module.exports = function (paths, modules) {
         await Promise.all(itemPromises);
         modules.database.save(language);
     };
-    
+
     return srs;
 };

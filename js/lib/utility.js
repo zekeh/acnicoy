@@ -329,7 +329,7 @@ function parseEntries(entryString, separator) {
             insideParentheses = false;
         } else if (insideSquareBrackets && entryString[i] === "]") {
             insideSquareBrackets = false;
-        } else if ((!insideParentheses && !insideSquareBrackets && 
+        } else if ((!insideParentheses && !insideSquareBrackets &&
                     entryString[i] === separator)) {
             const entry = entryString.slice(startIndex, i).trim();
             if (entry.length > 0)
@@ -841,7 +841,7 @@ async function getTimeline(unit, numUnits, getInfoForInterval, toFuture=true) {
         }
     }
     return Promise.all(promises);
-} 
+}
 
 
 /**
@@ -923,17 +923,17 @@ function getDistantColors(n) {
         colors = ["#b56262", "#6ab673", "#6262b5",
                   "#b5b562", "#ba956d", "#b56ab0"];
     }
-    if (n <= colors.length) 
+    if (n <= colors.length)
         return colors.slice(0, n);
 
     // 21 colors taken from here: https://stackoverflow.com/a/309193
     // Not very aesthetically pleasing, but sufficiently distinguishable
     const alternativeColors = [
-        "#FF0000","#00FF00","#0000FF","#FFFF00","#FF00FF","#00FFFF","#000000", 
-        "#800000","#008000","#000080","#808000","#800080","#008080","#808080", 
+        "#FF0000","#00FF00","#0000FF","#FFFF00","#FF00FF","#00FFFF","#000000",
+        "#800000","#008000","#000080","#808000","#800080","#008080","#808080",
         "#C00000","#00C000","#0000C0","#C0C000","#C000C0","#00C0C0","#C0C0C0"
     ];
-    if (n <= alternativeColors.length) 
+    if (n <= alternativeColors.length)
         return alternativeColors.slice(0, n);
 
     // More than 21 colors are not supported, return array filled with #000000

@@ -586,7 +586,7 @@ class MainWindow extends Window {
     createSuggestionPanes () {
         const promises = [];
         for (const name of components.suggestionPanes) {
-            const suggestionPane = 
+            const suggestionPane =
                 document.createElement(name + "-suggestion-pane");
             suggestionPane.classList.add("suggestion-pane");
             suggestionPane.hide();
@@ -732,6 +732,7 @@ class MainWindow extends Window {
                             dataManager.content.guessDictionaryId(entryName);
                     }
                     if (dictionaryId !== null) {
+                        console.log(dataManager)
                         showSuggestions = true;
                         await this.suggestionPanes[name].load(
                             dictionaryId, entryName);
@@ -1254,7 +1255,7 @@ class MainWindow extends Window {
             title = `Achievement unlocked`;
             buttonLabel = "OK";
             subtitle = language !== undefined ? `[For ${language}] ` : "";
-            subtitle += `<b>${name}</b> - ` + 
+            subtitle += `<b>${name}</b> - ` +
                 dataManager.achievements.getDescription(achievement, level);
             buttonCallback = () => this.deleteNotification(id);
         }
@@ -1340,7 +1341,7 @@ class MainWindow extends Window {
         window.addEventListener("keydown", this.tourShortcutsHandler,
                                 { capture: true });
     }
-    
+
     async displayNextPart() {
         if (this.currentPartIndex === this.introTourParts.length) {
             this.exitIntroTour();

@@ -107,7 +107,6 @@ class EditVocabPanel extends EditPanel {
         this.lastEnteredWord = null;
         this.$("word").onlyAllowPastingRawText(this.root);
         this.$("word").putCursorAtEndOnFocus(this.root);
-
         // Upon finishing entering word, try to load associated information
         this.$("word").addEventListener("focusout", async () => {
             if (this.closed) return;
@@ -143,6 +142,7 @@ class EditVocabPanel extends EditPanel {
             }
             if (dictionaryId !== null) {
                 main.suggestionPanes["edit-vocab"].load(dictionaryId, newWord);
+                console.log(dictionaryId)
                 main.showSuggestionsPane("edit-vocab", true);
             } else {
                 main.hideSuggestionPane(true);

@@ -84,6 +84,7 @@ class DictionarySearchResultEntry extends Widget {
         }
 
         // Store important information in this element's dataset
+        //console.log(info)
         this.dataset.id = info.id;
         this.dataset.mainWord = info.wordsAndReadings[0].word;
         if (this.dataset.mainWord.length === 0) {
