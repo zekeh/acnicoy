@@ -68,6 +68,9 @@ for (let i = 0; i < singleHiraganaRomaji.length; ++i)
 for (let i = 0; i < hiraganaCompoundsRomaji.length; ++i)
     romajiToHiraganaCompounds[hiraganaCompoundsRomaji[i]] = hiraganaCompounds[i]
 
+romajiToSingleHiragana['si'] = 'し';
+romajiToSingleHiragana['tu'] = 'つ';
+
 const singleKatakana = [];
 for (let charCode = 12449; charCode < 12539; ++charCode)
     singleKatakana.push(String.fromCharCode(charCode));
@@ -129,6 +132,9 @@ for (let i = 0; i < singleKatakanaRomaji.length; ++i)
     romajiToSingleKatakana[singleKatakanaRomaji[i]] = singleKatakana[i];
 for (let i = 0; i < katakanaCompoundsRomaji.length; ++i)
     romajiToKatakanaCompounds[katakanaCompoundsRomaji[i]] = katakanaCompounds[i]
+
+romajiToSingleKatakana['si'] = 'シ';
+romajiToSingleKatakana['tu'] = 'ツ';
 
 const romajiChars = new Set("abcdefghijkmnoprstuwyzABCDEFGHIJKMNOPRSTUWYZ");
 const smallKana = new Set("ゃゅょャュョ");
